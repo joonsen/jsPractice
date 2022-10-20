@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>str_replace</title>
+</head>
+<body>
+<input type='text' size='50' id='source'/><br/>
+<input type='text' size='50' id='target'/><br/>
+<input type='text' size='10' id='word'/>
+<input type='button' value='변환' id='btn'/>
+<script>
+let btn = document.querySelector('#btn');
+btn.onclick = function(){
+	let source = document.querySelector('#source');
+	let target = document.querySelector('#target');
+	let word = document.querySelector('#word').value;
+	let temp = source.value.replace(word,'');
+	target.value = temp;
+	
+	// 변수에 저장되어 있는 문자로 모든 단어를 변경할 때
+	let reg = new RegExp(word, "g"); //=> /가/g
+	temp = source.value.replace(reg, '[관리자가 삭제함]');
+	target.value = temp;
+	
+	
+}
+
+</script>
+</body>
+</html>

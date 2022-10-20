@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>score_crud.html</title>
+<link rel='stylesheet' href='../css/score_crud_tch.css'>
+<script defer src='../js/score_crud_tch.js'></script>
+</head>
+<body>
+<main>
+    <h2>성적관리 CRUD (II)</h2>
+    <div id='left'>
+        <form name='frm'>
+            <span>serial</span>
+            <input type='text' name='serial' size='5'/>
+            <input type='button' value='검색' name='findSerial'/>
+            <br/>
+            <span>학번</span>
+            <input type='text' name='id' size='6'/>
+            <br/>
+            <span>과목</span>
+            <select name='subject'>
+            </select>
+            <br/>
+            <span>성적</span>
+            <input type='text' name='score' size='4'/>
+            <hr/>
+            <input type='button' value='저장' name='btnSave'/>
+            <input type='button' value='수정' name='btnUpdate'/>
+            <input type='button' value='삭제' name='btnDelete'/>
+            <input type='reset' value='초기화' />
+            
+            <br/>
+            <input type='button' value='출력' name='btnOutput'/>
+        </form>
+    
+    </div>
+    <div id='right'>
+        <h2>성적현황 LIST</h2>
+        <div class='find_zone'>
+	        <input type='text' id='findStr' placeholder="검색어는 공백으로 구분">
+	        <input type='button' value='검색' id='btnFind'>
+        </div>
+        
+        <div class='title'>
+            <span class='serial'>SERIAL</span>
+            <span class='id'>학 번</span>
+            <span class='subject'>과 목</span>
+            <span class='score'>성 적</span>
+        </div>
+        <div class='items'></div>
+    </div>
+</main>
+</body>
+</html>
+

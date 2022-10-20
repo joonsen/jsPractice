@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test4_tch</title>
+</head>
+<body>
+800px 미만, 800px 이상
+<link rel='stylesheet' href='../css/a_type.css'
+	media='screen and (min-width:600px) and (max-width:800)'>
+	
+<link rel='stylesheet' href='../css/b_type.css'
+	media='screen and (min-width:801px)'>
+<link rel='stylesheet' href='../css/c_type.css'
+	media='screen and (min-width:1000px)'>
+	
+<div id='result'></div>
+
+<script>
+let img = '<img src="../images/a.jpg"/>';
+let r = document.querySelector('#result');
+for(i=0; i<50; i++){
+	r.innerHTML += img;
+}
+</script>
+</body>
+</html>

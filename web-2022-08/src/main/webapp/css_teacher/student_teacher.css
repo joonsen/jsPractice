@@ -1,0 +1,114 @@
+@charset "UTF-8";
+/* 학생관리 */
+html, body {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+
+#std_input{
+	width:600px;
+	margin:30px auto;
+	border:4px solid #aaa;
+	padding: 30px 50px;
+	border-radius: 15px;
+	box-shadow: 3px 3px 4px #ccc;		
+}
+
+#std_input>form span{
+	display: inline-block;
+	width:100px;
+	text-align: right;
+}
+
+#std_input .btnZone{
+	margin-top: 10px;
+}
+
+#std_input>h2{
+	text-align: center;
+}
+
+/* 학생정보 조회 */
+#std_list{
+	width: 1100px;
+	margin:30px auto;
+}
+
+#std_list ul{
+	list-style : none;
+	margin-top:3px;
+}
+#std_list li.title{
+	background-color:#444;
+	color:#fff;
+	padding:2px;
+}
+#std_list li>span{
+	display:inline-block;
+}
+#std_list li>span.no{
+	width:80px;
+	text-align:right;
+	padding-right:20px;
+}
+#std_list li>span.id{
+	width:100px;
+}
+#std_list li>span.name{
+	width:100px;
+}
+
+#std_list li>span.gender{
+	width:50px;
+}
+#std_list li>span.phone{
+	width:130px;
+}
+#std_list li>span.address{
+	width:80px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+#std_list li>span.email{
+	width:210px;
+}
+#std_list li>span.zipcode{
+	width:60px;
+}
+#std_list>form{
+	text-align:right;
+}
+#std_list li.btn_page{
+	text-align:center;
+	margin-top:5px;
+	padding-top:5px;
+	border-top:2px dotted #aaa;
+}
+#std_list li.btn_page>input{
+	border-radius:10px;
+	border:1px solid #aaa;
+	padding:2px 4px;
+}
+#std_list li.btn_page>input:hover{
+	background-color:#44f;
+	color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web_worker_main</title>
+</head>
+<body>
+<script>
+let worker1 = new Worker('web_worker1.js');
+let worker2 = new Worker('web_worker2.js');
+let worker3 = new Worker('web_worker3.js');
+
+worker1.onmessage = function(ev){
+	console.log('worker1=', ev.data);
+}
+//메세지가 들어오면 ~ 하겠다
+
+worker2.onmessage = function(ev){
+	console.log('worker2=', ev.data);
+}
+
+worker3.onmessage = function(ev){
+	console.log('worker3=', ev.data);
+}
+
+//스레드란 놈이, 일의 시작순서는 1 2 3 순차적으로 실행될지 모르지만, 끝나는 시간은 다르다 - 멀티스레드의 特
+//멀티스레드지만 끝나는 작업을 1 2 3 으로 끝나게 하는게 이 작업의 최종 목적
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

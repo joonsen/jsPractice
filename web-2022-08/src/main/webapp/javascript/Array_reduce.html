@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array_reduce.html</title>
+</head>
+<body>
+<Script>
+let array=[3,4,5,76,1,15158,900,123,11];
+let reduce = array.reduce(function(cur, now){
+	cur[now] = ++cur[now] || 1;
+	return cur;
+}, {})
+
+console.log(reduce);
+</Script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

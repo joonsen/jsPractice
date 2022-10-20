@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>image_preview.html</title>
+<style>
+#photo_file{
+	display:none;
+}
+#photo{
+	width: 200px;
+	height: 250px;
+	border: 5px solid #aaa;
+	border-radius: 7px;
+}
+#photo:hover{
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h3>프로필 사진 등록</h3>
+<input type='file' id='photo_file'/>
+<img src='' id='photo'/>
+
+<script>
+let btnFile = document.querySelector('#photo_file');
+let img = document.querySelector('#photo');
+
+photo.onclick = function(){
+	btnFile.click();
+}
+
+btnFile.onchange = function(ev){
+	let file = ev.srcElement.files[0];
+	let reader = new FileReader();
+	reader.readAsDataURL(file);
+	reader.onload = function(fev){
+		let tempImg = new Image();
+		tempImg.src = this.result;
+		photo.src = tempImg.src;
+	}
+	
+}	//이런식으로 이야기를 풀듯이 해야한다
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>random.html</title>
+</head>
+<body>
+<script>
+for(i=0; i<20; i++){
+	rnd = Math.random(); //0<=rnd<1
+	console.log(rnd);
+}
+console.log('--------------------')
+//1~100 사이의 난수를 10개
+for(i=0; i<10; i++){
+	rnd=parseInt( Math.random()*100) + 1;
+	console.log(rnd);	
+}
+console.log('-----------------')
+//1~45까지의 난수를 6개
+for(i=0; i<6; i++){
+	//TODO
+	rnd=parseInt(Math.random()*45)+1;
+	console.log(rnd);
+}
+
+//1~45 까지의 난수를 중복없이 6개
+let lotto=[];
+while(lotto.length<6){
+	rnd=parseInt(Math.random()*45)+1;
+	if(lotto.indexOf(rnd) == -1){
+		lotto.push(rnd);
+	}
+}
+console.log('lotto:',lotto);
+
+function num(x,y){
+	return x-y;// 오름차 정렬
+}
+
+// 1~45까지의 난수를 중복없이 6개(type2)
+lotto = new Array(45);
+for(i=0; i<lotto.length; i++) lotto[i] = i+1;
+for(i=0; i<1000; i++){
+	p = parseInt(Math.random()*44)+1;
+	k = lotto[0];
+	lotto[0] = lotto[p];
+	lotto[p] = k;
+}
+r= lotto.slice(0,6);
+r.sort();
+console.log(r);
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

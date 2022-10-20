@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_sort_bubble.html</title>
+</head>
+<body>
+<script>
+//bubble sort
+let s = [32,51,21,64,87,23,2,85,8656];
+let change = true;
+let last=1;		// last란 변수를 왜 만들었는지 직접 해보면서 體感 필수
+console.log(s);
+do{
+	change=false;
+	for(i  =0 ; i<s.length-last ; i++){	//i=0,1,2,3,4
+		if(s[i]>s[i+1]){
+			min = s[i+1];
+			s[i+1] = s[i];
+			s[i] = min;
+			change = true;
+		}
+		
+	}
+	last++;
+	console.log(s);
+}while(change);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>win_sub.html</title>
+</head>
+<body>
+<input type='text' id='target' placeholder='송신된 자료가 표시됨'/>
+<br/>
+<input type='button' value='수신' id='btnReceive'/>
+<input type='button' value='송신' id='btnSend'/>
+<script>
+
+//수신버튼 클릭시 win_main에 있는 수신자료가 복사됨.
+let btnReceive = document.querySelector('#btnReceive');
+btnReceive.addEventListener('click', function(){
+	let target = document.querySelector('#target');
+	let source = opener.document.querySelector('#text1');
+	target.value = source.value;
+})
+//전송버튼 클릭시 target 내용이 win_main의 text2에 전송
+let btnSend = document.querySelector('#btnSend');
+btnSend.addEventListener('click', function(){
+	let source = document.querySelector('#target');
+	let target = window.opener.document.querySelector('#text2');
+	target.value = source.value;
+})
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>async_test1</title>
+</head>
+<body>
+<input type='text' size='40'/>
+<script>
+function a(){
+	for(i=0; i<999999999; i++){}
+	return 1;
+}
+function b(){
+	for(i=0; i<999999999; i++){}
+	return 2;
+}
+function c(){
+	for(i=0; i<999999999; i++){}
+	return 3;
+}
+console.log('a(): ',a());
+console.log('b(): ',b());
+console.log('c(): ',c());
+
+//정규식은 순서대로(순차적으로) 실행되기 때문에 무조건 순서대로 끝난다.
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_misstion.html</title>
+</head>
+<body>
+<Script>
+/* str= "010-1111-2222"와 같은 연락처가 저장되어 있을때
+split 함수를 사용하여 사업자번호, 국번, 전화번호를 각각 출력
+*/
+function M1(){
+	let phone ="010-1111-2222";
+	let sp = phone.split("-");
+	console.log('사업자:', sp[0]);
+	console.log('국번호:', sp[1]);
+	console.log('전화번호:', sp[2]);
+} 
+M1();
+/* str="1,2,3,4,5" 와 같이 숫자가 하나의 문자열로 입력되어 있다.
+ * 이를 split으로 분리한 후 합계와 평균을 구하여 출력
+ */
+function M2() {
+	let str="1,2,3,4,5";
+	let n = str.split(",");
+	let sum = n.reduce(function(r,v){
+		r += Number(v);
+		return r;
+	},0);
+	let avg = (sum/n.length).toFixed(1);
+	console.log('sum:', sum);
+	console.log('avg:', avg);
+} 
+M2();
+
+/* score = {60,70,50,70,30} 배열값을 some을 사용하여 과락이 있는지 판단하고
+ * reduce()를 사용하여 합계를 구하여 과락여부와 합계를 출력하시오.
+ * 과락이 없고, 평균이 60 이상이면 "pass", 아니면 "fail" 을 출력
+*/
+function M3(){
+	let score=[60,50,90,70,30];
+	let flag = !score.some(function(v){
+		if(v<40) return true;
+	})
+	let sum = score.reduce(function(r,v){
+		r += v;
+		return r;
+	},0)
+	let avg = sum/score.length;
+	
+	console.log('과락:', flag);
+	console.log('합계:', sum);
+	console.log('평균:', sum/score.length);
+	if( !flag && avg>=60){
+		console.log('pass....');
+	}else{
+		console.log('fail.....');
+	}
+}
+M3();
+
+/* su=[1,2,3,4,3,4,5,1] 의 배열에서 각 번호의 발생 빈도를 계산하여 숫자와 함께 출력; */
+
+function M4() {
+	let su=[1,2,3,4,3,4,5,1];
+	let cntArray=su.reduce(function(r, n){
+		r[n] = ++r[n] || 1;
+		return r;
+	},{})
+	
+	for(x in cntArray){
+		rate = cntArray[x]/su.length*100;
+		console.log(x, cntArray[x], rate.toFixed(3));
+	}
+}
+M4();
+</Script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

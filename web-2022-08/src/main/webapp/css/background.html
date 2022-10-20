@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>background.html</title>
+<style>
+/* 모든 div에 외각선과 넓이 500px, 높이 300px를 지정*/
+div {
+	border: 3px solid #00f;
+	width: 500px;
+	height: 300px;
+}
+
+/* .a 영역에 background-image를 사용하여 이미지 추가 */
+
+div.a{
+	background-image:url(../images/d.png);
+}
+
+/* .b영역에 background-image를 가로축으로만 반복해서 */
+
+div.b{
+	background-image:url(../images/d.png);
+	background-repeat: repeat-x;
+}
+
+/* .c영역에 background-image를 반복없이 가운데 배치 */
+
+div.c{
+	background-image:url(../images/d.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* .d영역에 background-image를 영역의 크기만큼 크게 배치 */
+
+div.d{
+	background-image:url(../images/d.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius:20px;
+}
+
+</style>
+</head>
+<body>
+<div class='a'></div>
+<div class='b'></div>
+<div class='c'></div>
+<div class='d'></div>
+</body>
+</html>

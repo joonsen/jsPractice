@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_keyevent.html</title>
+</head>
+<body>
+<form name='frm'>
+	<span>주민번호</span>
+	<input type='text' name='ju1'
+	onKeyUp="chk(this.form,'ju1')"/>
+	<input type='text' name='ju2'
+	onKeyUp="chk(this.form,'ju2')"/><br/>
+	<span>이름</span>
+	<input type='text' name='irum'
+	onKeyup="func()"/>
+</form>
+<Script>
+function chk(ff,str){
+	if(ff.ju1.value.length >=6 && str == 'ju1'){
+		ff.ju2.focus();
+	}
+	if(ff.ju2.value.length >=7 && str == 'ju2'){
+		ff.irum.focus();
+	}
+}
+function func(event){
+	var ev = window.event || event;
+	var k = ev.key || ev.keyCode;
+	if(k == 'Enter' || k == 13){
+		alert();
+	}
+}
+</Script>
+</body>
+</html>

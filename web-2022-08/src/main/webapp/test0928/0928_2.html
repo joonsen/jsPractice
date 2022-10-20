@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+let data = [
+
+	{'city':'부산', 'gender' : 'm', 'age' : 25},
+
+	{'city':'동해', 'gender' : 'm', 'age' : 35},
+
+	{'city':'제주', 'gender' : 'm', 'age' : 45},
+
+	{'city':'독도', 'gender' : 'm', 'age' : 25},
+
+	{'city':'대전', 'gender' : 'm', 'age' : 35},
+
+	{'city':'울산', 'gender' : 'f', 'age' : 45},
+
+	{'city':'독도', 'gender' : 'f', 'age' : 25},
+
+	{'city':'제주', 'gender' : 'f', 'age' : 35},
+
+	{'city':'독도', 'gender' : 'f', 'age' : 45},
+
+	{'city':'제주', 'gender' : 'f', 'age' : 25}
+
+	];
+
+var busan_filter = data.filter( element => element.city =="부산")
+console.log(busan_filter);
+var donghae_filter = data.filter( element => element.city =="동해")
+console.log(donghae_filter);
+var jeju_filter = data.filter( element => element.city =="제주")
+console.log(jeju_filter);
+var dokdo_filter = data.filter( element => element.city =="독도")
+console.log(dokdo_filter);
+var daejeon_filter = data.filter( element => element.city =="대전")
+console.log(daejeon_filter);
+var woolsan_filter = data.filter( element => element.city =="울산")
+console.log(woolsan_filter);
+
+document.write("city: 부산 cnt:" + busan_filter.length + "<br/>");
+document.write("city: 동해 cnt:" + donghae_filter.length +"<br/>");
+document.write("city: 제주 cnt:" + jeju_filter.length + "<br/>");
+document.write("city: 독도 cnt:" + dokdo_filter.length + "<br/>");
+document.write("city: 대전 cnt:" + daejeon_filter.length + "<br/>");
+document.write("city: 울산 cnt:" + woolsan_filter.length );
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

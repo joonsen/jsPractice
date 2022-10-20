@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>async_test2.html</title>
+</head>
+<body>
+<script>
+function a(){
+	let r;
+	let w1 = new Worker('web_worker1.js');
+	let p = new Promise(function(resolve,reject){
+		w1.onmessage = function(ev){
+			r = ev.data;
+			resolve(r);
+			console.log(r);
+		}
+	})
+	return p;
+}
+//일반적인 function을 만드는 과정과 똑같지만 반환형은 promise다
+//매개변수 타입으로 function 들어간다
+
+function b(){
+	let r;
+	let w2 = new Worker('web_worker2.js');
+	let p = new Promise(function(resolve,reject){
+		w2.onmessage = function(ev){
+			r = ev.data;
+			resolve(r);
+			console.log(r);
+		}
+	})
+	return p;
+}
+function c(){
+	let r;
+	let w3 = new Worker('web_worker3.js');
+	let p = new Promise(function(resolve,reject){
+		w3.onmessage = function(ev){
+			r = ev.data;
+			resolve(r);
+			console.log(r);
+		}
+	})
+	return p;
+}
+async function main(){
+	let r1 = await a();
+	let r2 = await b();
+	let r3 = await c();
+//promise -> resolve(r) r값이 리턴된다.
+//비동기화된 함수들이 절차를 지켜 동기화된 함수처럼 끝내자
+	
+	console.log('r1=', r1);
+	console.log('r2=', r2);
+	console.log('r3=', r3);
+}
+
+main();
+//스레드를 실행시킬 abc 3개 함수. 비동기방식으로 실행되는 함수들을 정의했어 ㅡ 라고 async를 붙일 것이다.
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

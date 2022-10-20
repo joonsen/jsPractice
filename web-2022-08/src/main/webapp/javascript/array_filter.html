@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Array_filter.html</title>
+</head>
+<body>
+<script>
+let scores= [
+	{'name' : 'hong', 'score' : 90, 'phone' : '010'}, // 숫자값을 제외한 데이터는 따옴표를 해주는게 정석
+	{'name' : 'kim' , 'score' : 70, 'phone' : '010'}, // 010 값에 따옴표를 뺄 경우 8로 인식함(8진수). 0으로 시작하면 그렇다
+	{'name' : 'lee' , 'score' : 50, 'phone' : '017'},
+	{'name' : 'park' , 'score' : 40, 'phone' : '018'},
+	{'name' : 'choi' , 'score' : 10, 'phone' : '019'}	
+] 
+//for of
+for(v of scores){
+	console.log(v.name, v.score, v.phone); // 데이터를 출력할 수 있어야 제어가 가능
+}
+
+//forEach
+scores.forEach(function(v, index){
+	console.log(index, v.name, v.score, v.phone);
+})
+
+// filter를 사용하여 조건에 맞는 자료를 모아 새로운 배열 생성
+let passArray = scores.filter(function(v){
+	if(v.score>=60) return true;
+	else return false;
+})
+console.log(passArray);
+
+// filter를 사용하여 불합격자 명단을 모아 새로운 배열을 만들고 출력
+
+let failArray = scores.filter(function(v){
+	let flag = false;
+	if(v.score<60) flag = true; //return이 여기저기 있는건 권장할만한 상황 x
+	return flag;
+})
+console.log('fail:' , failArray);
+
+// filter를 사용하여 연락처가 010인 배열을 모아 새로운 배열을 만들어 출력
+
+let phoneArray = scores.filter(function(v){
+	let flag = false;
+	if(v.phone=='010') flag = true;
+	return flag;
+})
+console.log(phoneArray);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

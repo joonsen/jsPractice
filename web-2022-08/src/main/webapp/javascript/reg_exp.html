@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>reg_exp</title>
+</head>
+<body>
+<Script>
+function msg(reg, str){
+	var b = reg.test(str);
+	var temp = `<li><b>${reg}</b></li> : ${str} <font color='red'>${b}</font>`;
+	document.write(temp);
+}
+try{
+	var str1 = '123';
+	var str2 = '123abc123';
+	var str3 = 'abc';
+	var str4 = '!@#a';
+	var str5 = '가나다';
+	var str6 = 'abc123가나다';
+	var str7 = 'Afsfaf';
+	var str8 = 'asdfAadff';
+	
+	var reg;
+	
+	// 숫자가 포함되어 있는가
+	reg = /[0-9]/;
+	msg(reg, str1);
+	msg(reg, str2);
+	msg(reg, str3);
+	msg(reg, str4);
+	msg(reg, str5);
+	msg(reg, str6);
+	msg(reg, str7);
+	msg(reg, str8);
+	document.write('<hr/>');
+	
+	// 숫자만 입력되어 있는가
+	reg = /^[0-9]+$/;
+	arry = ['123', '123abc123', 'abc', '!@#a', '가나다', 'abc123가나다', 'Afsfaf', 'asdfAadff'];
+
+	for(v of arry) msg(reg,v);
+	
+	document.write('<hr/>');
+	
+	
+	// 3) 영문자만
+	reg = /^[a-zA-Z]+$/;
+	for(v of arry) msg(reg,v);
+	
+	document.write('<hr/>');
+	
+	// 4) 영숫자만
+	
+	reg = /^[a-zA-Z0-9]+$/
+	for(v of arry) msg(reg,v);
+	document.write('<hr/>');
+	
+	// 5) 첫글자 대문자
+	reg = /^[A-Z][\w]+$/
+	for(v of arry) msg(reg,v);
+	document.write('<hr/>');
+	
+	// 6) 한글만
+	reg = /^[ㄱ-힣]+$/
+	for(v of arry) msg
+	
+	
+	// 7) 연락처
+	
+	// 8) 이메일
+	
+	
+	
+	
+}catch(error){
+	alert(error);
+}
+</Script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

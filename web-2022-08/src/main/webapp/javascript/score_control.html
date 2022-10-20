@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>score_control.html</title>
+<link rel='stylesheet' href='../css/score_control.css'>
+<script defer src='../js/score_control.js'></script>
+</head>
+<body>
+<main>
+	<div class='main_title'>
+	성적 CRUD
+	</div>
+	<form name='frm_score'>
+		<span>학번</span>
+		<input type='text' name='id' value='1'/><br/>
+		<span>과목</span>
+		<input type='text' name='subject' value='국어'/><br/>
+		<span>성적</span>
+		<input type='text' name='score' value='50'/>
+		<hr/>
+		<span></span>
+		<input type='button' value='입력' name='btninput' onclick='add(this.form)'>
+		<input type='button' value='수정' name='btncorrect' onclick='correct(this.form)'>
+		<input type='button' value='삭제' name='btndelete' onclick='deleteFunc(this.form)'>
+	</form>
+	<div id='list'>
+		<div id='title'>
+			<span class='id'>학번</span>
+			<span class='subject'>과목</span>
+			<span class='score'>성적</span>
+		</div>
+		<div id='items'>
+			<div id='item' onclick='view("a001")'> <! -----a001자리에 id x---->
+				<span class='id'>a001</span>
+				<span class='subject'>국어</span>
+				<span class='score'>88</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class='status'>화이팅~~~</div>
+</main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<fieldset>빅데이터 분석 결과 시각화<br/>
+<progress max='10' value="" id='prg4' ></progress>44: 2<br/>
+<progress max='10' value="" id='prg5' ></progress>55: 2<br/>
+<progress max='10' value="" id='prg6' ></progress>66: 2<br/>
+<progress max='10' value="" id='prg7' ></progress>77: 4<br/>
+<progress max='10' value="" id='prg8' ></progress>88: 5<br/>
+<progress max='10' value="" id='prg9' ></progress>99: 3
+</fieldset>
+<Script>
+let data = [44,55,66,77,88,99,88,77,88,99,44,55,77,88,77,99,88,66];
+let occurrences = {};
+for (const v of data) {
+  occurrences[v] = occurrences[v] ? occurrences[v] + 1 : 1;
+}
+console.log(occurrences); 
+
+var prg4 = document.getElementById("prg4");
+prg4.value = occurrences[44];
+var prg5 = document.getElementById("prg5");
+prg5.value = occurrences[55];
+var prg6 = document.getElementById("prg6");
+prg6.value = occurrences[66];
+var prg7 = document.getElementById("prg7");
+prg7.value = occurrences[77];
+var prg8 = document.getElementById("prg8");
+prg8.value = occurrences[88];
+var prg9 = document.getElementById("prg9");
+prg9.value = occurrences[99];
+</Script>
+</body>
+</html>

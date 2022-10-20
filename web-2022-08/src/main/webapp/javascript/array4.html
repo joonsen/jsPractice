@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array4.html</title>
+</head>
+<body>
+<script>
+let mountain = ['백두산', '금강산', '설악산', '한라산'];
+let river = ['두만강', '낙동강', '한강', '섬진강'];
+// concat~slice까지
+//concat
+let all = mountain.concat(river);
+
+document.write("<hr/>" + "concat" + "<br/>");
+document.write("산: "+mountain+"<br/>");
+document.write("강: "+river+"<br/>");
+document.write("산과 강:"+all+"<br/>");
+
+document.write("<hr/>" + "join" + "<br/>");
+document.write("산: "+mountain.join("->")+"<br/>");
+document.write("강: " + river.join("*") + "<br/>" );
+document.write("산과 강: " +all.join("<->")+ "<br/>");
+
+document.write("<hr/>" + "reverse" + "<br/>");
+document.write("산(reverse): " + mountain.reverse() + "<br/>");
+document.write("강(reverse): " + river.reverse() + "<br/>" );
+document.write("산과 강(reverse): " + all.reverse() + "<br/> ");
+
+//document.write("<hr/>" + "push(object)" + "<br/>");
+//mountain.push('산은 무슨 산이냐');
+//document.write("산: " + mountain + "<br/>");
+
+
+
+
+</script>
+</body>
+</html>

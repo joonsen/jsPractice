@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_focus2</title>
+</head>
+<body>
+<form id="confirmInfo" action="bookingsuccess.html">
+  <p>Number of tickets :<input id="num" type="text" oninput="calc()" /> </p>
+  <p>Price Per ticket : $<span id="ticket_price">7</span></p>
+  <p>Booking fee : $2</p>
+  <p>Subtotal : <b>$<span id="total">0</span></b></p>
+
+
+  <form name="myform" action="bookingsuccess.php" method="post">
+    <button>Book</button>
+  </form>
+  <button>Cancel</button>
+</form>
+<script>
+function calc() 
+{
+  var price = document.getElementById("ticket_price").innerHTML;
+  var noTickets = document.getElementById("num").value;
+  var total = parseFloat(price) * noTickets
+  if (!isNaN(total))
+    document.getElementById("total").innerHTML = total
+}
+</script>
+</body>
+</html>

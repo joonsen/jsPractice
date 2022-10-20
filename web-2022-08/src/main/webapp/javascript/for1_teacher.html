@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>for1.html</title>
+</head>
+<div class='info'>
+구구단을 input로 입력받아 output 영역에 해당 구구단을 출력하시오.
+</div>
+<span>몇 단을 산출할까요?</span>
+<input type = 'text' id='gugudan' value='2'/>
+<input type = 'button' value='실행' id='btn'/>
+<output id='output'></output>
+
+<script>
+let btn = document.querySelector('#btn');
+btn.onclick = function(){
+	let dan = Number(document.querySelector('#gugudan').value);
+	let output = document.querySelector('#output');
+	let str='';
+	for(let i=1; i<10; i++){
+		str += (dan + "*" + i + "=" + (dan*i) );
+		str += ("<br/>");
+	}
+	output.innerHTML = str;
+}
+
+
+</script>
+</body>
+</html>

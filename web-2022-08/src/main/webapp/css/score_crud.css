@@ -1,0 +1,65 @@
+@charset "UTF-8";
+body{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+main{
+	width: 1200px;
+	min-height:400ppx;
+	margin: 30px auto;
+	border:3px outset #aaa;
+	padding: 20px;
+	border-radius: 15px;
+	box-shadow: 3px 3px 5px #999;
+	position: absolute;
+	
+}
+#left{
+	width:320px;
+	float:left;
+	background-color: #ccc;
+	border-radius: 10px;
+	padding:20px;
+}
+#left>h2{
+	font-size: 25pt;
+	font-weight: bolder;
+	text-align: center;
+}
+form>span{
+	display: inline-block;
+	width:65px;
+}
+/* 목록 표시 부분 ---------------------- */
+#right{
+	float: right;
+	width: 800px;
+}
+#right>.title{
+	background-color: #444;
+	color: #fff;
+	padding:2px;
+}
+#right span{
+	display: inline-block;
+}
+.item{
+	padding:2px 30px;
+}
+.item>div:last-child{
+	border-bottom:2px dotted #aaa;
+}
+.item:hover{
+	background-color:#ddd;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>operation.html</title>
+</head>
+<body>
+<script>
+// 산술연산자(나머지 연산자)
+/*
+
+var a=10;
+var a=20;
+let b=3;
+let c=a/b;
+let d=a%b;
+console.log('a=',a);
+console.log('b=',b);
+console.log('c=',c);
+console.log('d=',d);
+
+// 논리 연산자
+console.log(10>20);
+console.log(10==20);
+console.log(10!=20);
+let a=10;
+let b=20;
+console.log(a>b);
+console.log(a==b);
+console.log(a != b);
+*/
+
+//논리연산(논리곱) => 논리의 세계에서 곱셈.
+let addr='서울';
+let gen='남자';
+/*
+let r = (addr=='서울') && (gen=='남자');
+console.log(r);
+r= (addr=='부산') && (gen=='남자');
+console.log(r);
+r= (addr=='서울') && (gen=='여자');
+console.log(r);
+r= (addr=='부산') && (gen=='여자');
+console.log(r);
+
+let x=10;
+r = (10>20) & (x++>0);
+console.log(r);
+console.log(x);
+// x++은 x에 1을 더하라는 의미인데, &&는 10>20이 false이므로 뒤에 부분은 연산을 실행하지 않는다
+// &일 경우는 앞에가 false 더라도 뒤에 연산까지 수행한다. 그러므로 컴퓨터 입장에선 더 오래걸린다.
+*/
+
+
+//논리합(~또는, ~이거나) OR 
+
+r = (addr=='서울') || (gen=='남자');
+console.log(r);
+r = (addr=='제물포') || (gen=='남자');
+console.log(r);
+r = (addr=='서울') || (gen=='여자');
+console.log(r);
+r = (addr=='목포') || (gen=='여자');
+console.log(r);
+
+r = (addr='목포') || (gen='여자');
+console.log(r);
+// ==는 좌측과 우측이 같다, =는 우측값을 좌측에 삽입(할당연산자)
+
+
+
+
+
+</script>
+</body>
+</html>

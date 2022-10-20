@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test1-3.html</title>
+<style>
+
+</style>
+</head>
+<body>
+<h2>LOGIN</h2>
+<form name='frm_login'>
+	<span>아이디</span>
+	<input type='text' name='id' value='kim'/><br/>
+	<span>암호</span>
+	<input type='password' name='pwd'/><br/>
+	<input type='button' value='LOGIN' onclick='chk()'/>
+	<output name='output'></output>
+</form>
+<script>
+function Login(x,y) {
+	let r = "fail";
+	if(x=='kim' && y=='1111'){
+		r="pass";
+	}
+	return r;
+}
+
+function chk(){
+	let frm = document.frm_login;
+	let id = frm.id.value;
+	let pw = frm.pwd.value;
+	
+	let a = Login(id,pw);
+	frm.output.innerHTML = a ;
+}
+
+
+</script>
+
+
+</body>
+</html>

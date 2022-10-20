@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>watch.html</title>
+<style>
+body{
+background-color: black;
+text-align: center;
+}
+main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+</style>
+</head>
+<body>
+<main>
+	<div id='nal'>2022-09-02(금)</div>
+	<div id='time'>10:50:15</div>
+</main>
+<script>
+let week = ['일','월','화','수','목','금','토'];
+let nal = document.querySelector('#nal');
+let time = document.querySelector('#time');
+setInterval(createDate, 1000);
+
+function createDate(){
+	let now = new Date();
+	let nalStr = now.toISOString().substr(0,10);
+	nalStr += "(" + week[now.getDay()] +")";
+	nal.innerHTML = nalStr;
+
+	var date=new Date()
+	var hours=date.getHours()
+	var minutes=date.getMinutes()
+	var seconds=date.getSeconds()
+	/*
+	*Calls the addZero function to add a zero infront of minutes or seconds if they are below 10, i.e.
+	*to make it look like 12:07:09, not 12:7:9
+	*/
+	minutes=addZero(minutes);
+	seconds=addZero(seconds);
+	/*
+	*Puts hours in the element with the hours id,
+	*minutes in the element with the minutes id,
+	*and seconds in the element with the seconds id
+	*/
+	document.getElementById('hours').innerHTML = hours;
+	document.getElementById('minutes').innerHTML = minutes;
+	document.getElementById('seconds').innerHTML = seconds;
+	/*
+	*Runs every half second
+	*/
+	setTimeout('digital_clock()', 500)
+	}
+	/*
+	Adds a zero infront of minutes or seconds
+	*/
+	function addZero(min_or_sec)
+	{
+	if (min_or_sec < 10)
+	{min_or_sec="0" + min_or_sec}
+	return min_or_sec
+	}
+	
+	
+	
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

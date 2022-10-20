@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>multi_image_preview</title>
+<style>
+#photos{
+	min-height:120px;
+	border: 2px solid #999;
+	padding: 10px;
+}
+.sub_item{
+	border: 1px solid #00f;
+	width: 120px;
+	height: 150px;
+	position: relative;
+	display: inline-block;
+}
+.sub_item>div{
+	position: absolute;
+	width:30px;
+	height: 30px;
+	right: 3px;
+	bottom:3px;
+	background-color: #aaa8;
+}
+.sub_item>div:hover{
+	cursor:pointer;
+}
+.sub_item>img{
+	width: 120px;
+	height: 150px;
+}
+.sub_item>div{
+	color:#f007;
+	font-size:20pt;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<h2>갤러리에 업로드할 사진들을 선택하시오</h2>
+<input type='file' id='btnUpload' multiple/>
+<div id = 'photos'>
+
+
+</div>
+<Script>
+let fileList=[];
+let dt = new DataTransfer(); // file tag의 정보를 수집하기 위한 객체
+let photos = document.querySelector('#photos');//미리보기 이미지
+let btnUpload = document.querySelector('#btnUpload');
+btnUpload.onchange = function(ev){
+	let files = ev.srcElement.files; //선택한 파일들
+	if(files.length<=0) return;	// 아무런 파일도 선택하지 않은 경우
+	
+	console.log('files', files);
+	
+	let fileArray = Array.prototype.slice.call(files);
+	
+for(f of fileArray){	// 이미지와 x박스가 들어갈 영역
+	fileList.push(f);
+	
+	let div = document.createElement('div');// node는 네트워크가 연결되는 지점을 뜻함.html에서는 가지가 발생하는 지점
+	let img = document.createElement('img');
+	let chk = document.createElement('div');
+	div.setAttribute('class','sub_item');//js를 통해서 sub_item이라는 태그를 만들어내라.
+	loadImage(img, f);
+	div.appendChild(img);
+	div.appendChild(chk);
+	chk.innerHTML = 'X';
+	chk.setAttribute('file', f.name);
+	
+	photos.appendChild(div);
+
+	
+	chk.onclick = function(ev){
+		let ele = ev.srcElement; // 이벤트가 발생한 태그
+		let parent = ele.parentNode; // ele를 포함한 부모 태그
+		let delFile = chk.getAttribute('file');
+		
+		for(i in fileList){
+			if(fileList[i].name == delFile){
+				fileList.splice(i,1);
+				break;    
+			}
+		}
+		
+		photos.removeChild(parent);
+		changeFileTag(btnUpload);
+	}
+	}// end of for
+	
+	changeFileTag(this);
+}// end of onchange
+
+function loadImage(img, file){
+	let result;
+	let reader = new FileReader();
+	reader.readAsDataURL(file);
+	reader.onload=function(fev){
+		let tempImg = new Image();
+		tempImg.src = this.result;
+		img.src = tempImg.src;
+	}
+}
+
+function changeFileTag(fileTag){
+	dt = new DataTransfer();
+	for(f of fileList){
+		dt.items.add(f);
+	}
+	fileTag.files = dt.files;//file tag 정보를 갱신
+	
+}
+</Script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

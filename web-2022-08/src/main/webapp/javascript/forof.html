@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>forof.html</title>
+</head>
+<body>
+<form name='frm'>
+	<label><input type='checkbox' name='hobby' value='가'>가</label>
+	<label><input type='checkbox' name='hobby' value='나'>나</label>
+	<label><input type='checkbox' name='hobby' value='다'>다</label>
+	<label><input type='checkbox' name='hobby' value='라'>라</label>
+	<br/>
+	<input type='button' value='for of' onclick='run()'/>
+	<input type='button' value='for in' onclick='run2()'/>
+</form>
+<div id='result'></div>
+<script>
+	let frm = document.frm;
+	let result = document.querySelector('#result');
+	function run(){
+		let h = frm.hobby;
+		let str = '<ul>';
+		for(v of h){
+			if( v.checked ){
+			str += '<li>' + v.value + '</li>';				
+			}
+		}
+		str += '</ul>';
+		result.innerHTML = str;
+	}
+	function run2(){
+		let h = frm.hobby;
+		let str = '<ul>';
+		for(v in h){//v는 index값이 됨.
+			if(h[v].checked){
+				str += '<li>' + h[v].value + '</li>';
+			}
+		}
+		str += '</ul>';
+		result.innerHTML = str;
+		
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

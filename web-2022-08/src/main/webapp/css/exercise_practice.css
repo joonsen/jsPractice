@@ -1,0 +1,15 @@
+@charset "UTF-8";
+main{
+	width:300px;
+	height:400px;
+	background:tomato;
+}
+div{
+	width:200px;
+	height:100px;
+	border: 1px solid;
+	background:yellow;
+	text-align:right;
+	line-height:100px;
+	box-sizing:border-box;
+}

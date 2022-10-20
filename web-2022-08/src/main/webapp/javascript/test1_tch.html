@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test1_tch</title>
+<style>
+div span{
+	display: inline-block;
+	width: 120px;
+}
+#title{
+
+}
+</style>
+</head>
+<body>
+<div id='title'>
+	<span>성명</span>
+	<span>아이디</span>
+	<span>연락처</span>
+	<span>이메일</span>
+</div>
+<div id='result'>
+<div class='item'>
+	<span>hong</span>
+	<span></span>
+	<span>연락처</span>
+	<span>이메일</span>
+</div>
+
+</div>
+<script>
+let array = [
+	{'name': 'hong1', 'id': 'a001', 'phone': '1234', 'email': 'a001@'},
+	{'name': 'hong2', 'id': 'a002', 'phone': '1235', 'email': 'a002@'},
+	{'name': 'hong3', 'id': 'a003', 'phone': '1236', 'email': 'a003@'},
+	{'name': 'hong4', 'id': 'a004', 'phone': '1237', 'email': 'a004@'}
+]
+let r = document.querySelector('#result');
+
+for(x of array){
+	temp = `
+		<div class='item'>
+			<span>${x.name}</span>
+			<span>${x.id}</span>
+			<span>${x.phone}</span>
+			<span>${x.email}</span>
+		</div>
+	`;//``로 안하면 되게 복잡해진다
+	r.innerHTML += temp;
+}
+// 순서가 중요하다 - for in, data가 중요하다 - for of.
+
+</script>
+</body>
+</html>

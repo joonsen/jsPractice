@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>func_test1</title>
+</head>
+<body>
+<Script>
+//1) 매개변수 x, 반환형 x
+function MyName(){//Hoisting됨
+	console.log('이준혁');
+}
+
+MyName();
+//함수 MyName이 객체로 생성되어 변수m에 대입된다.
+//이 때 m은 일반변수와 다르게 객체명이라 한다.
+ 
+let m =new MyName();
+
+//2) 매개변수x , 반환값 o
+function MyAddress(){
+	return "대한민국";
+}
+let address = MyAddress();
+console.log(address);
+
+//3)매개변수 o, 반환값 x
+function sum(x,y){
+	let s = x+y;
+	console.log('s=', s);
+}
+sum(10,20) ;
+sum(20,100);
+let x = 100;
+let y =200;
+sum(x,y);
+
+//4) 매개변수 o, 반환값 o
+function Avg(xxxx, yyyy){
+	let s = x+y;
+	let a = s/2;
+	return a;
+}
+console.log(avg(10,20));
+console.log(avg(100,50));
+
+</Script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

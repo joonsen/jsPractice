@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+	<div class="back">
+		<div class="fore"> Contents </div>
+	</div>
+	<div class="list">
+		<div>list #1</div>
+		<div>list #2</div>
+		<div>list #3</div>
+		<div>list #4</div>
+	</div>
+	<style>
+		.back {
+			width: 100%;
+			height: 200px;
+			background: pink;
+		}
+		.fore {
+			font-size: 26px;
+			color: #fff;
+			text-align: center;
+		}
+		.list {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			text-align: center;
+		}
+		.list > div {			
+			height: 100px;
+			margin: 5px;
+		}
+		@media (max-width:768px) {
+			.list > div {
+				flex:calc(100% - 15px); 
+				background: green;
+			}
+		}
+		@media (min-width:769px) and (max-width:1000px) {
+			.list > div {
+				flex:calc(50% - 25px);
+				background: yellow;
+			}
+		}
+		@media (min-width:1000px) {
+ 			.list > div {
+				flex:calc(25% - 25px);
+				background: skyblue;
+			}   
+		}
+		
+		@media(orientation: Landscape){
+		    body {
+		        padding-top:100px;
+		        margin-right:20px;
+		        margin-left:20px;             
+		    }
+		}
+		
+		
+		@media(orientation: Portrait){
+		    body {
+		        padding-top:100px;
+		        margin-right:20px;
+		        margin-left:20px;             
+		    }
+		}
+	</style>
+</body>
+</html>

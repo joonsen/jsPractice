@@ -1,0 +1,44 @@
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script> 
+<script type="text/javascript"> 
+var barChartData = {        
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: 'Pass',
+            backgroundColor: "#1E90FF",
+            data: [
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000
+           ]
+        }, {
+            label: 'NG',
+            backgroundColor: "#F7464A",
+            data: [
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000,
+                Math.random()*90000
+            ]
+        }]
+    };
+ window.onload = function() {
+    var ctx = $('#chart').get(0).getContext("2d"); 
+    window.theChart = new Chart(ctx, {
+         type: 'bar',
+         data: barChartData,
+         options: {
+            
+         }
+ });
+}
+</script>
+<canvas id="chart"></canvas> 
+출처: https://risha-lee.tistory.com/4 [리샤의 개발 일지:티스토리]

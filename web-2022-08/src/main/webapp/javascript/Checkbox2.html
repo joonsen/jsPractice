@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Checkbox2.html</title>
+</head>
+<body>
+<form name='frm' method='post'>
+<table border=0>
+<th>마음에 드는 연예인을 고르시오</th>
+<tr>
+<td>
+	<textarea name=re rows=5 cols=30></textarea>
+</td></tr>
+<tr>
+<td>
+	<label><input type='checkbox' name='chk' value='티아라'>티아라</label>
+	<label><input type='checkbox' name='chk' value='소녀시대'>소녀시대</label>
+	<label><input type='checkbox' name='chk' value='황신혜'>황신혜</label>
+	<label><input type='checkbox' name='chk' value='김미화'>김미화</label>
+	<label><input type='checkbox' name='chk' value='이영자'>이영자</label>
+	<label><input type='checkbox' name='chk' value='고두심'>고두심</label>
+	<label><input type='checkbox' name='chk' value='신지'>신지</label>
+	<input type='button' name='btn' value='선택' onclick="mclick(this.form)">
+	<input type='reset' value='취소'>
+</table>
+<Script>
+let str = ''; //str을 지역형으로 사용하겠다는 선언
+let chks = []; // storage에 저장될 값이나 저장한 값을 저장하는 배열 변수
+
+
+// sessionStorage에 있는 값을 사용하여 현재 페이지의 초기값으로 설정
+
+let temp = sessionStorage.getItem('chks');
+let frm = document.frm;
+if(temp!=null){
+	chks = temp.split(',');
+	for(v of chks){
+		for(tag of frm.chk){
+			if(tag.value == v){
+				tag.checked=true;
+				str += tag.value + '\n';
+				break;
+			}
+		}
+	}
+	frm.re.value= str;
+}
+function mclick(frm){
+	str = '';
+	chks=[];//str을 사용. 개념을 분리해서 설명할 수 있어야 한다
+	for(tag of frm.chk){
+		if(tag.checked){
+		str += tag.value + '\n';
+		chks.push(tag.value);
+		}
+	}
+	frm.re.value = str;
+	sessionStorage.setItem('chks',chks);
+}
+</Script>
+</form>
+</body>
+</html>

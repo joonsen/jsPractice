@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test3_tch</title>
+</head>
+<body>
+<form name='frm'>
+	<span>아이디</span>
+	<input type='text' name='id' value='a001'/><br/>
+	<span>암호</span>
+	<input type='password' name='pwd' value='a001'/><br/>
+	<input type='button' value='확인' name='btn'/>
+</form>
+<div id='result'></div>
+<script>
+//로그인하고 싶지 않은 디자인이면 회사 망한다!
+let frm = document.frm;
+let r = document.querySelector('#result');
+frm.btn.onclick = function(){
+	if(frm.id.value=='kim' && frm.pwd.value=='1111'){
+		r.innerHTML = "PASS";
+	}else {
+		r.innerHTML = "FAIL";
+	}
+}
+</script>
+
+
+</body>
+</html>

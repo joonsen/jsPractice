@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test3</title>
+</head>
+<body>
+<form>
+  <div id="user"> Username: </div>
+  <div id="username-ctr"> 
+    <input type="text" id="username"  /> 
+  </div>
+  <div id="pass"> Password: </div>
+  <div id="password-ctr"> 
+    <input type="password" id="password" /> 
+  </div>
+  <div id="logIn"> 
+    <input type="button" value="Log In" onClick="logIn()"/> 
+  </div>
+</form>
+<script>
+function logIn(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(username == "kim" && password == "1111"){
+        document.write("pass");
+    }else{
+        document.write("fail");
+    }
+}
+
+</script>
+</body>
+</html>

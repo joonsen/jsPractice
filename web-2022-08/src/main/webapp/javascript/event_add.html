@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_add.html</title>
+</head>
+<body>
+<input type='button' value='inline' onclick='func1()'/>
+<input type='button' value='ONCLIK' id='btn'/>
+<input type='button' value='LISTENER' id='btn2'/>
+<script>
+function func1(){
+	let ev = window.event;
+	console.log(ev);
+}
+
+let btn = document.querySelector('#btn');
+btn.onclick = func1;	// callback 함수를 지정(o)		두번째 방법
+//btn.onclick = func1();	// 함수 func1의 실행결과가 대입.(x!!)
+
+let btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', func1);	//최근 가장 빈도수 多.		세번째 방법
+
+</script>
+</body>
+</html>

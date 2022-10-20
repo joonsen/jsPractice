@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>도시별 인구수</h2>
+<div id='result'></div>
+
+<Script>
+let data = [
+
+	{'city':'부산', 'gender' : 'm', 'age' : 25},
+
+	{'city':'동해', 'gender' : 'm', 'age' : 35},
+
+	{'city':'제주', 'gender' : 'm', 'age' : 45},
+
+	{'city':'독도', 'gender' : 'm', 'age' : 25},
+
+	{'city':'대전', 'gender' : 'm', 'age' : 35},
+
+	{'city':'울산', 'gender' : 'f', 'age' : 45},
+
+	{'city':'독도', 'gender' : 'f', 'age' : 25},
+
+	{'city':'제주', 'gender' : 'f', 'age' : 35},
+
+	{'city':'독도', 'gender' : 'f', 'age' : 45},
+
+	{'city':'제주', 'gender' : 'f', 'age' : 25}
+
+	];
+	
+let group=[]; // {city:'서울', cnt: 10} 라는 배열로 저장해야 어떤 city인지 알지.
+let r = document.querySelector('#result');
+for(d of data){
+	//group 배열에 d에 있는 city가 존재하는가?
+	let index = group.findIndex(obj=>obj.city==d.city);
+	if(index >= 0){
+		group[index].cnt++;	
+	}else{
+		group.push({'city':d.city, 'cnt':1});
+	}
+	//index가 0보다 크거나 같다 = grp에 city가 있다
+};
+console.log(group);
+//50에서 59까지를 50대라 간주하는 연산식을 만들수 없다. 내가 안해봤다면! divide 10을 하면 되는건데...
+//프로그래밍의 함수는 구구단을 우리가 외는것처럼 숙달이 되어야 하는것. 그래서 四當五落 같은말이 생긴것.고3떄처럼.
+
+for(g of group){
+	str = `<li>도시명 : ${g.city} => 인구수 : ${g.cnt}`;
+	r.innerHTML += str;
+}
+
+//發想을 어떻게 하느냐가 중요했던 문제. 
+//시간 되면 이런 map구조가 아니라 다른 방법으로 설계를 해보세요.
+
+
+</Script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

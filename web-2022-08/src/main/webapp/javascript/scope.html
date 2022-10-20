@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>scope.html</title>
+</head>
+<body>
+<script>
+// 전역형
+var name='hong';
+age=19;
+
+function a(){
+	console.log('name:', name);
+	console.log('age:', age);
+	name='홍길동';
+	age=30;
+}
+a(); // 함수를 호출하는 부분.
+console.log('name2:', name);
+console.log('age2:', age);
+
+</script>
+
+<script>
+// 지역형
+
+function b(){
+	var name2='hong';
+	var age2=19;
+	console.log('name:', name2);
+	console.log('age:', age2);
+	name2='홍길동';
+	age2=30;
+}
+b(); // 함수를 호출하는 부분.
+//console.log('name2:', name2);
+//console.log('age2:', age2);
+/* 지역형이 되면 함수 호출은 안된다 */
+</script>
+
+<script>
+// var 와 let 차이
+// var은 2번이상 선언이 가능함
+var name='hong';
+var name='kim';
+
+//let은 한번만 선언 가능함.
+let age=10;
+let age=20; //오류 Uncaught SyntaxError: Identifier 'age' has already been declared.(at scope.html:50:5)
+
+//변수는 let으로 선언한다. function 안에서 선언한다. 두가지만 기억하자!
+
+</script>
+
+
+</body>
+</html>

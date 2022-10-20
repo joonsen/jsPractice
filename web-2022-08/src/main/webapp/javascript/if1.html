@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>if1.html</title>
+</head>
+<body>
+<script>
+let a=5;
+let b=10;
+let c=1;
+
+if( a>b ){
+	c=a-b;
+}
+document.write("<h3>if문 처리 결과</h3>");
+document.write("c="+c);
+
+
+// ---------------------------------------
+// 평균이 avg에 저장되어 있다.
+// avg>=60 이면 "Pass"를 출력하고 60 미만이면 아무것도 
+// 출력되지 않도록 if문을 작성하시오.
+/*
+avg= 51;
+
+if(avg>=60){
+	document.write("<br/>Pass");
+} 
+
+*/
+/* -------------------------------------
+	수량과 단가가 각각 ea,price에 저장되어 있다. 금액=수량*단가를 사용하며
+	금액을 계산하고 금액이 100000원 이상이면 "사은품 증정"을 화면에 출력하시오.
+ */
+/*
+ea= 20;
+price = 10000;
+consume = ea*price;
+
+if (consume>=10000) {
+	document.write("사은품 증정");
+} document.write("이용해주셔서 감사합니다.")
+ */
+/* -----------------------------------------
+ 키와 몸무게가 h,w 에 저장되어 있을 때 키가 200 이하이고, 몸무게가 100 이하일 때
+ "탑승 가능"을 출력하시오
+ */
+/*
+ h= 199;
+ w= 90;
+ if(h<=200 && w<=100){
+	document.write("탑승가능"); 
+ }
+ */
+/* ------------------------------------------
+ 구역, 거리, 단가가 zone, km, price 에 저장되어 있다. 거리*단가를 사용하여
+ 금액을 계산하고, 구역이 "시외"라면 금액에 할증료 10%를 추가하여 그 결과를 
+ 화면에 출력하시오.
+ */
+/*
+ 
+let zone = 0; // 0은 시내 1은 시외 
+let km = 100;
+let price = 1000;
+let c = km*price; //c는 금액
+
+if(zone==1) {
+	c = 1.1*c;	
+} document.write("금액은 ", c, "원입니다");
+
+*/
+
+document.write("<hr/>")
+let zone;
+let km;
+var price;
+var amt;
+var tax=0;//할증액
+var tot=0; // amt+tax
+zone = prompt("시내? 시외?", "시외")
+km = prompt("주행 거리는 ?", 20);
+price = prompt("기본 단가 ?", 2000);
+amt = km*price;
+
+if(zone=='시외'){
+	tax = amt * 0.1;
+}
+	tot= amt+tax;
+
+document.write('<li>zone: ' + zone);
+document.write('<li>Km:'+ km);
+document.write('<li>Price:'+ price);
+document.write('<li>amt:'+amt);
+document.write('<li>tax:'+tax);
+document.write('<li>tot:'+tot);
+
+</script>
+</body>
+</html>

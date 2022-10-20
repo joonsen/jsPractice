@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_forEach.html</title>
+</head>
+<body>
+<div id='result'></div>
+<script>
+let rst = document.getElementById('result');
+//for in, for of, forEach
+let ary = ['가','나','다','라'];
+let str = '';
+ary.forEach(function(value, index){
+	str += `index=${index} : ${value} <br/>`;
+});
+rst.innerHTML = str;
+</script>
+
+
+</body>
+</html>

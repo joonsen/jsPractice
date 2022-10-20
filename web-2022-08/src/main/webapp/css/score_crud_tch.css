@@ -1,0 +1,97 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+main{
+	width:800px;
+	margin:30px auto;
+}
+
+main>h2{
+	text-align: center;
+	margin-bottom:40px;
+	border-bottom:2px solid #444;
+	padding:20px 0;
+}
+
+main>div{
+	display:inline-block;
+	vertical-align: top;
+}
+
+/* left --------------------- */
+#left{
+	margin-right:30px;
+	border:3px solid #aaf;
+	padding:20px;
+	border-radius:10px;
+}
+#left form span{
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+}
+form input[name=btnSave]{
+    width:50px;
+    background-color:#00f;
+    color:#fff;
+}
+form input[name=btnUpdate]{
+    width:50px;
+    background-color:#0ff;
+    color:#444;
+}
+form input[name=btnDelete]{
+    width:50px;
+    background-color:#f00;
+    color:#fff;
+}
+#left form input[value=출력]{
+	width:208px;
+	height:30px;
+	margin-top:3px;
+}
+/* right --------------------- */
+
+#right{
+    width:500px;
+}
+
+#right h2{
+	text-align:center;
+}
+#right .find_zone{
+	text-align:right;
+	margin-bottom:3px;
+}
+
+#right .title{
+	background-color:#333;
+	color:#fff;
+	padding:3px 6px;
+}
+
+#right .items{
+	max-height:500px;
+	overflow:scroll;
+}
+#right span{
+	display: inline-block;
+}
+#right span.serial{ width : 120px; }
+#right span.id{ width : 120px; }
+#right span.subject{ width : 130px; }
+#right span.score{ width : 90px; text-align:right;}
+
+#right .item:nth-child(2n){
+	background-color:#eee;
+}	
+#right .item:last-child{
+	border-bottom:2px solid #ccc;
+}
+#right .item:hover{
+	background-color:#bbb;
+	cursor:pointer;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event_mouseover.html</title>
+</head>
+<body>
+<img src="../images/a.jpg" name='first'
+	 width='500px' height='400px'/>
+<br/>
+<img src="../images/a.jpg" onmouseover='mover(0)'/>
+<img src="../images/c.jpeg" onmouseover='mover(1)' />
+<img src="../images/d.png" onmouseover='mover(2)'/>
+<img src="../images/forest.jpg" onmouseover='mover(3)'/>
+<script>
+let target = document.first;
+let arry = []
+for(i=0; i<4; i++){
+	arry[i] = new Image();
+} 
+arry[0].src='../images/a.jpg';
+arry[1].src='../images/c.jpeg';
+arry[2].src='../images/d.png';
+arry[3].src='../images/forest.jpg';
+
+function mover(n){
+	target.src = arry[n].src;
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

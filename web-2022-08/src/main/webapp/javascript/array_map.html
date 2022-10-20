@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>array_map.html</title>
+</head>
+<body>
+<script>
+let arry=[1.2, 0.5, 45.9, 34.01];
+let newArry = arry.map(function(value){
+	return Math.ceil(value); // value 값을 절상함. value 값보다 크거나 같은 최소 변수. ex/10.5 -> 11. 10.0 -> 10.
+});
+console.log('arry:', arry);
+console.log('newArry:', newArry);
+
+let newArry2 = arry.map(	(value)=>(Math.ceil(value))	);
+console.log('newArry2:', newArry2);
+</script>
+</body>
+</html>
