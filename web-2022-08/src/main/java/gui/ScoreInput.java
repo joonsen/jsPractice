@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
 
@@ -52,12 +54,13 @@ public class ScoreInput extends JInternalFrame {
 	 */
 	public ScoreInput(MyInterMain main) {
 		this();
-		this.main = main;
+		this.main = main;	//생성된 자기자신을 main에 던져
 	}
 	
 	
 	public ScoreInput() {
 		super("성적입력", false, true, true, true);
+		setBorder(new LineBorder(new Color(0,0,0)));
 		addInternalFrameListener(new InternalFrameAdapter() {
 			@Override
 			public void internalFrameClosed(InternalFrameEvent e) {
@@ -182,10 +185,23 @@ public class ScoreInput extends JInternalFrame {
 		if (btnModify == null) {
 			btnModify = new JButton("수정");
 			btnModify.addActionListener(new ActionListener() {
+				
 				public void actionPerformed(ActionEvent e) {
+					//수정된 정보를 가져와 ScoreVo 객체 생성
+					int serial = Integer.parseInt(getTfSerial().getText());
+					String id = tfId.getText();
+					String mDate = getTfMdate().getText();
+					String subject = getTfSubject().getText();
+					int score = Integer.parseInt(getTfScore().getText());
+					ScoreVo vo = new ScoreVo(serial, id, mDate, subject, score);
+					
+					//ScoreDao.modify(vo) 호출
+					ScoreDao dao = new ScoreDao();
+					dao.modify(vo);
+					
 				}
 			});
-			btnModify.setBounds(139, 147, 68, 23);
+			btnModify.setBounds(139, 150, 68, 23);
 		}
 		return btnModify;
 	}
@@ -194,6 +210,9 @@ public class ScoreInput extends JInternalFrame {
 			btnDelete = new JButton("삭제");
 			btnDelete.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					int serial = Integer.parseInt(getTfSerial().getText());
+					ScoreDao dao = new ScoreDao();
+					dao.delete(serial);
 				}
 			});
 			btnDelete.setBounds(237, 147, 68, 23);

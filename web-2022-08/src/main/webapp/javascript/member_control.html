@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>member_control.html</title>
-<link rel='stylesheet' href='../css/member_control.css'>
-<script defer src='../js/member_control.js'></script>
+<link rel='stylesheet' href='./css/member_control.css'>
+<script defer src='./js/member_control.js'></script>
 </head>
 <body>
 <main>
 	<div class='main_title'>
 	회원정보 CRUD
 	</div>
+	<div id=pht>
+		<input type='file' id='photo_file' onchange='preview()'/>
+		<img src='' id='photo'/>
+	</div>
+	<div id='left'>
 	<form name='frm_member'>
 		<div class='photo'>
-			<img src='' class='img' name='img'
-			onclick='preview()'>
-			<input type='file' name='photo'/>
+			
 		</div>
 		<span>아이디</span>
 		<input type='text' name='id' value='a001'/><br/>
@@ -33,6 +36,10 @@
 		<input type='button' value='UPDATE' name='btnUpdate' onclick='update(this.form)'/>
 		<input type='button' value='DELETE' name='btnDelete' onclick='deleteFunc(this.form)'/>
 	</form>
+	</div>
+	
+	<div id='right'>
+		
 	<div id='list'>
 		<div id='title'>
 			<span class='id'>아이디</span>
@@ -48,6 +55,7 @@
 			<span class='phone'>010-1111-1234</span>
 		</div>
 		</div>
+	</div>
 	</div>
 </main>
 </body>

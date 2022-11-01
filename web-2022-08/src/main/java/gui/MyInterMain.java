@@ -20,9 +20,13 @@ import collection.ListFrame;
 
 public class MyInterMain extends JFrame {
 	// JInternalFrame을 하나씩만 생성하게 처리
-	JInternalFrame mi, ms;
+	JInternalFrame mi, ms;	//다형성에 대한 연습? MemberInput mi 이런식으로 해도 되지만 , 다형성,유연성
 	ScoreInput si;
 	ScoreSearch ss;
+	MemberInputDB midb;		//필드에 객체를 생성한다는건 "하나만 만들겠다" 란 의미(인스턴스와 다르겠지)
+	MemberSearchDB msdb;
+	ScoreInputDB sidb;
+	ScoreSearchDB ssdb;
 	
 	private JPanel contentPane;
 	private JDesktopPane desktopPane;
@@ -39,6 +43,11 @@ public class MyInterMain extends JFrame {
 	private JMenuItem mntmNewMenuItem_5;
 	private JMenuItem mntmNewMenuItem_6;
 	private JMenuItem mntmNewMenuItem_7;
+	private JMenuItem mntmNewMenuItem_8;
+	private JMenuItem mntmNewMenuItem_9;
+	private JMenuItem mntmNewMenuItem_10;
+	private JMenuItem mntmNewMenuItem_11;
+	private JMenuItem mntmNewMenuItem_12;
 
 	/**
 	 * Launch the application.
@@ -101,6 +110,8 @@ public class MyInterMain extends JFrame {
 			mnNewMenu = new JMenu("회원관리");
 			mnNewMenu.add(getMntmNewMenuItem());
 			mnNewMenu.add(getMntmNewMenuItem_1());
+			mnNewMenu.add(getMntmNewMenuItem_9());
+			mnNewMenu.add(getMntmNewMenuItem_10());
 		}
 		return mnNewMenu;
 	}
@@ -109,6 +120,8 @@ public class MyInterMain extends JFrame {
 			mnNewMenu_1 = new JMenu("성적관리");
 			mnNewMenu_1.add(getMntmNewMenuItem_6());
 			mnNewMenu_1.add(getMntmNewMenuItem_7());
+			mnNewMenu_1.add(getMntmNewMenuItem_11());
+			mnNewMenu_1.add(getMntmNewMenuItem_12());
 		}
 		return mnNewMenu_1;
 	}
@@ -125,7 +138,7 @@ public class MyInterMain extends JFrame {
 			mntmNewMenuItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					if(mi ==null) {
+					if(mi ==null) {		//회원가입 버튼을 누를때 비로소 mi 객체 생성(?)
 						mi = new MemberInput(MyInterMain.this);	//자식객체의 생성자를 가지고 부모객체에 대입(?) 하는것 이것이 다형성
 						desktopPane.add(mi);
 						desktopPane.updateUI();
@@ -164,6 +177,7 @@ public class MyInterMain extends JFrame {
 			mnNewMenu_3.add(getMntmNewMenuItem_3());
 			mnNewMenu_3.add(getMntmNewMenuItem_4());
 			mnNewMenu_3.add(getMntmNewMenuItem_5());
+			mnNewMenu_3.add(getMntmNewMenuItem_8());
 		}
 		return mnNewMenu_3;
 	}
@@ -261,5 +275,88 @@ public class MyInterMain extends JFrame {
 			});
 		}
 		return mntmNewMenuItem_7;
+	}
+	public JMenuItem getMntmNewMenuItem_8() {
+		if (mntmNewMenuItem_8 == null) {
+			mntmNewMenuItem_8 = new JMenuItem("SelectBox");
+			mntmNewMenuItem_8.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					SelectBox sb = new SelectBox();
+					desktopPane.add(sb);
+					desktopPane.updateUI();
+					sb.toFront();
+					}
+				}
+			);
+		}
+		return mntmNewMenuItem_8;
+	}
+	public JMenuItem getMntmNewMenuItem_9() {
+		if (mntmNewMenuItem_9 == null) {
+			mntmNewMenuItem_9 = new JMenuItem("회원가입(DB)");
+			mntmNewMenuItem_9.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					if(MyInterMain.this.midb == null) {	//MyInterMain이 자기자신이기에 this까지 쓸 필요는 사실 없었다
+					MyInterMain.this.midb = new MemberInputDB(MyInterMain.this);	//
+					desktopPane.add(midb);
+					desktopPane.updateUI();
+					midb.toFront();
+					MyInterMain.this.midb = midb;
+					}
+				}
+			});
+		}
+		return mntmNewMenuItem_9;
+	}
+	public JMenuItem getMntmNewMenuItem_10() {
+		if (mntmNewMenuItem_10 == null) {
+			mntmNewMenuItem_10 = new JMenuItem("회원조회(DB)");
+			mntmNewMenuItem_10.addActionListener(new ActionListener() {		//개수에 무관하게 필요한만큼 만들어 쓰겠다
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					MemberSearchDB msdb = new MemberSearchDB(MyInterMain.this);
+					desktopPane.add(msdb);
+					desktopPane.updateUI();
+					msdb.toFront();
+				}
+			});
+		}
+		return mntmNewMenuItem_10;
+	}
+	public JMenuItem getMntmNewMenuItem_11() {
+		if (mntmNewMenuItem_11 == null) {
+			mntmNewMenuItem_11 = new JMenuItem("성적입력(DB)");
+			mntmNewMenuItem_11.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					if(MyInterMain.this.sidb == null) {
+						MyInterMain.this.sidb = new ScoreInputDB(MyInterMain.this);
+						desktopPane.add(sidb);
+						desktopPane.updateUI();
+						sidb.toFront();
+						MyInterMain.this.sidb = sidb;
+					}
+				}
+			});
+		}
+		return mntmNewMenuItem_11;
+	}
+	public JMenuItem getMntmNewMenuItem_12() {
+		if (mntmNewMenuItem_12 == null) {
+			mntmNewMenuItem_12 = new JMenuItem("성적조회(DB)");
+			mntmNewMenuItem_12.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					ScoreSearchDB ssdb = new ScoreSearchDB(MyInterMain.this);
+					desktopPane.add(ssdb);
+					desktopPane.updateUI();
+					ssdb.toFront();
+				}
+			});
+		}
+		return mntmNewMenuItem_12;
 	}
 }

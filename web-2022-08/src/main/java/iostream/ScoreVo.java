@@ -16,6 +16,8 @@ public class ScoreVo implements Serializable {
 		this.subject = sub;
 		this.score = score;
 	}
+	public ScoreVo() {}
+	
 
 	public Vector getVector() {
 		Vector v = new Vector();
@@ -37,25 +39,31 @@ public class ScoreVo implements Serializable {
 		if(obj instanceof ScoreVo) {
 			ScoreVo vo = (ScoreVo)obj;
 			b = (vo.getSerial() == this.serial)	;
-			}
+		}
 		
 		return b;
 	}
-
-	public static long getSerialVersionUID() {
-		return serialVersionUID;
+	public int getSerial() {
+		return serial;
 	}
-
-	public static void setSerialVersionUID(long serialVersionUID) {
-		ScoreVo.serialVersionUID = serialVersionUID;
+	
+	public void setSerial(int serial) {
+		this.serial = serial;
 	}
-
 	public int getScore() {
 		return score;
 	}
-
+	
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public String getId() {
+		return id;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getmDate() {
@@ -74,21 +82,7 @@ public class ScoreVo implements Serializable {
 		this.subject = subject;
 	}
 
-	public int getSerial() {
-		return serial;
-	}
 
-	public void setSerial(int serial) {
-		this.serial = serial;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 }
 

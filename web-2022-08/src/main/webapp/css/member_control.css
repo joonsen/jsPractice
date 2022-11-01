@@ -4,15 +4,7 @@ body{
 	padding:0;
 	box-sizing: border-box;
 }
-main{
-	width: 1200px;
-	min-height: 400px;
-	margin: 30px auto;
-	border:3px outset #aaa;
-	padding:20px;
-	border-radius:15px;
-	box-shadow:3px 3px 5px #999;
-}
+
 main>.main_title{
 	font-size:25pt;
 	font-weight:bolder;
@@ -20,7 +12,6 @@ main>.main_title{
 }
 main>form{
 	width:320px;
-	float:left;
 	background-color:#ccc;
 	border-radius:10px;
 	padding:20px;
@@ -37,8 +28,10 @@ form>input[name=name]{
 }
 /* 목록 표시 부분 ---------------------------------*/
 #list{
-	float: right;
-	width:800px;	
+	
+	overflow: auto
+	
+	display: inline-block;
 }
 
 #list>#title{
@@ -56,7 +49,9 @@ form>input[name=name]{
 #list span.phone{width: 200px;}
 
 #items{
+	height:300px;
 	padding: 2px 30px;
+	overflow:scroll;
 }
 #items>div:last-child{
 	border-bottom:2px dotted #aaa;
@@ -66,8 +61,33 @@ form>input[name=name]{
 	background-color:#ddd;
 	cursor: pointer;
 }
-
-
+#left{
+	display: inline-block;
+	vertical-align: top;
+}
+#right{
+	display: inline-block;
+	vertical-align: top;
+}
+#pht{
+	vertical-align: top;
+	display: inline-block;
+}
+#photo{
+	width:100px;
+	height:150px;
+	border:2px solid #aaa;
+	border-radius:7px;
+	margin:0;
+	padding:0;
+}
+#photo:hover{
+	cursor:pointer;
+	background-color:#ddd;
+}
+#photo_file{
+	display:none;
+}
 
 
 

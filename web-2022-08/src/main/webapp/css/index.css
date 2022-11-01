@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
 main{
-	width:1300px;
+	width:1300px auto;
 	margin:20px auto;
 	border:3px solid #aaa;
+	
 }
 div.login{
 	border:1px solid #999;
@@ -46,7 +47,8 @@ nav>a:hover{
 }
 
 .content{
-	height:300px;
+	min-width:1300px;
+	height: 450px;	
 }
 
 footer{

@@ -22,6 +22,8 @@ import javax.swing.table.DefaultTableModel;
 
 import iostream.Data;
 import iostream.MemberDao;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 
 public class MemberSearch extends JInternalFrame {
@@ -56,8 +58,9 @@ public class MemberSearch extends JInternalFrame {
 		this();
 		this.main = main;
 	}
-	public MemberSearch() {
+	public MemberSearch() {	
 		super("회원조회",true,true,true,true);
+		setBorder(new LineBorder(new Color(0, 0, 0)));
 		addInternalFrameListener(new InternalFrameAdapter() {
 			@Override
 			public void internalFrameClosing(InternalFrameEvent e) {
@@ -112,20 +115,7 @@ public class MemberSearch extends JInternalFrame {
 					}
 					table.updateUI();
 					
-					//DefaultTableModel model = new DefaultTableModel();	//model은 data만 말한다 - 이곳에는 data만 저장
 					
-					/*
-					Vector<String> header = new Vector();
-					header.add("아이디");
-					header.add("성 명");
-					header.add("주 소");
-					header.add("연락처");
-					header.add("포인트");
-					model.setDataVector(vector, header);
-					
-					table.setModel(model);
-					table.updateUI();
-					*/
 				}
 				
 			});
@@ -167,9 +157,10 @@ public class MemberSearch extends JInternalFrame {
 					//jtable에서 클릭된 좌표(row, column)
 					int row = table.getSelectedRow();
 					int col = table.getSelectedColumn();
-					Object obj = table.getValueAt(row, col);
-					System.out.printf("(%d,%d)=%s",row,col,obj);
-					if(main.mi==null) {
+					Object obj = table.getValueAt(row, col);	//테이블 행과 열의 값을 object로 가져와라
+//					System.out.printf("(%d,%d)=%s",row,col,obj);
+					
+					if(main.mi==null) {	//필드에 main 변수를 declaration 해줘서 사용가능
 						main.mi = new MemberInput(main);
 						main.getDesktopPane().add(main.mi);
 						main.getDesktopPane().updateUI();

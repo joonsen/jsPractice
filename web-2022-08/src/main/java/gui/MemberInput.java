@@ -195,7 +195,8 @@ public class MemberInput extends JInternalFrame {
 					int point = Integer.parseInt(tfPoint.getText());
 					
 					Data d = new Data(id, irum, addr, phone, point);
-					dao.modify(d);
+					
+					dao.modify(d);	//컨트롤+마우스키 메소드로 이동
 				}
 				
 			});

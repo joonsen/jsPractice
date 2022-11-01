@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -121,6 +123,31 @@ public class ScoreSearch extends JInternalFrame {
 			model.setDataVector(null, header);
 			
 			table = new JTable(model);
+			table.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					int row = table.getSelectedRow();
+					if(main.si == null) {
+						main.si = new ScoreInput(main);
+						main.getDesktopPane().add(main.si);
+						main.getDesktopPane().updateUI();
+						main.si.toFront();
+						
+					}
+					Integer serial = (Integer)table.getValueAt(row,0);
+					String id = (String)table.getValueAt(row,1);
+					String mDate = (String)table.getValueAt(row,2);
+					String subject = (String)table.getValueAt(row,3);
+					int score = (Integer)table.getValueAt(row, 4);
+					
+					main.si.getTfSerial().setText(serial.toString());
+					main.si.getTfId().setText(id);
+					main.si.getTfMdate().setText(mDate);;
+					main.si.getTfSubject().setText(subject);;
+					main.si.getTfScore().setText(score+"");
+					
+				}
+			});
 
 		}
 		return table;
