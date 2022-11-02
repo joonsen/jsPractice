@@ -1,6 +1,7 @@
 /**
  * score_crud.js
  */
+
 let frm = document.frm;
 let m_index=-1;
 

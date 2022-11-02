@@ -34,7 +34,7 @@ String sessionId = (String)session.getAttribute("sessionId");
 			<img src="images/d.png" alt="logo" width="120px" height="120px"/>
 		</div>
 		<nav>
-		<a href='index.jsp?inc=student/student_input_form.jsp'>학생관리</a>
+		<a href='index.jsp?inc=student_teacher/student_list_teacher.jsp'>학생관리</a>
 		<a href='index.jsp?inc=javascript/score_crud_tch.html'>성적관리</a>
 		<a href='index.jsp?inc=javascript/member_control.html'>회원관리</a>
 		<a href='#'>제품관리</a>

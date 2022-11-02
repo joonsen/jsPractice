@@ -5,16 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>학생 정보 조회</title>
-<link rel="stylesheet" href="../css_teacher/student_teacher.css"/>
+<link rel="stylesheet" href="./css_teacher/student_teacher.css"/>
+<script defer src='js/student.jsp'></script>
 </head>
 
 <body>
+<jsp:useBean id="pageVo" class="student.Page"/>
+<jsp:setProperty property="*" name="pageVo"/>
+
 <div id='std_list'>
 	<h2>학생정보 조회</h2>
 	<form name='frm_search' method='post'>
-		<input type='button' value='입력'/>
-		<input type='search' name='findStr' />
-		<input type='button' value='조회'/>
+		<input type='button' value='입력' name='btnInsert'/>
+		<input type='search' name='findStr' value="<%=pageVo.getFindStr() %>" />
+		<input type='button' value='조회' name='btnSelect'/>
+		<input type='text' name='nowPage' value ="<%=pageVo.getNowPage() %>"/>
 	</form>
 	<ul>
 		<a href=student_input_form_teacher.jsp>

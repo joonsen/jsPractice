@@ -7,8 +7,12 @@
 <title>student_input_form.jsp</title>
 <link rel="stylesheet" href="./css_teacher/student_teacher.css"/>
 <script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>
+<script defer src='js/student.js'></script>
 </head>
+
 <body>
+<jsp:useBean id="pageVo" class="student.Page"/>
+<jsp:setProperty property="*" name="pageVo"/>
 <div id='std_input'>
 	<h2>학생 정보 입력</h2>
 	<form name='frm_input'	method='post'	action='서버페이지'
@@ -55,9 +59,11 @@
 		<span></span>
 		<div class='btnZone'>
 			<span></span>
-			<input type='submit' value='저장'>
-			<input type='button' value='취소'/>
+			<input type='submit' value='저장' name='btnSave'/>
+			<input type='button' value='취소' name='btnCancel'/>
 		</div>
+		<input type='text' name='findStr' value='<%=pageVo.getFindStr() %>'/>
+		<input type='text' name='nowPage' value='<%=pageVo.getNowPage() %>'>
 	
 	</form>
 
