@@ -1,83 +1,76 @@
+<%@page import="student.StudentDao"%>
+<%@page import="student.StudentVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>student_list.jsp</title>
-<link rel="stylesheet"  href="../css/student.css">
+<title>학생 정보 조회</title>
+<link rel="stylesheet" href="./css_teacher/student_teacher.css"/>
+<script defer src='js/student.js'></script>
 </head>
-<body>
-<h2>학생정보 조회</h2>
-<div>
-	<input type='button' value="입력">
-	<input type='search'>
-	<form action="http://192.168.0.32:8888/web-2022-08/student/student_input_form.jsp"><a>
-		<input type='submit' value="조회">
-	</a></form>
-</div>
-<table>
-	<tr class="first">
-		<th>No</th>
-		<th>아이디</th>
-		<th>성명</th>
-		<th>성별</th>
-		<th>연락처</th>
-		<th>주소</th>
-		<th>이메일</th>
-		<th>우편번호</th>
-	</tr>
-	<tr>
-		<th>1</th>
-		<th>a002</th>
-		<th>kim2</th>
-		<th>f</th>
-		<th>6666</th>
-		<th>서울 강남구 봉은사로 111길5</th>
-		<th>6666</th>
-		<th>06083</th>
-	</tr>
-	<tr>
-		<th>2</th>
-		<th>a003</th>
-		<th>hong gil</th>
-		<th>m</th>
-		<th>9999</th>
-		<th>서울 금천구 시흥대로88가길 3</th>
-		<th>6666</th>
-		<th>08620</th>
-	</tr>
-	<tr>
-		<th>3</th>
-		<th>b001</th>
-		<th>kim</th>
-		<th>m</th>
-		<th>010-1111-2222</th>
-		<th>서울 강남구 강남대로 112길 12</th>
-		<th>kim@jobtc.kr</th>
-		<th>06120</th>
-	</tr>
-	<tr>
-		<th>4</th>
-		<th>a010</th>
-		<th>김씨</th>
-		<th>m</th>
-		<th>123456</th>
-		<th>서울 강남구 봉은사로55길 17</th>
-		<th>kim@jobtc.kr</th>
-		<th>06097</th>
-	</tr>
-	<tr>
-		<th>5</th>
-		<th>a001</th>
-		<th>나야나</th>
-		<th>m</th>
-		<th>123-1234</th>
-		<th>서울 강북구 삼양로123길 6-8</th>
-		<th>na@jobtc.kr</th>
-		<th>01029</th>
-	</tr>
 
-</table>
+<body>
+
+
+<div id='std_list'>
+	<h2>학생정보 조회</h2>
+	<form name='frm_search' method='post'>
+		<input type='button' value='입력' name='btnInsert'/>
+		<input type='search' name='findStr' size='40' value="${pageVo.findStr }" />
+		<input type='button' value='조회' name='btnSelect'/>
+		<input type='text' name='nowPage' value ="${pageVo.nowPage }"/>
+		
+	</form>
+	<ul>
+		<li class='title'> <!--  타이틀 -->
+			<span class='no'>No</span>
+			<span class='id'>아이디</span>
+			<span class='name'>성명</span>
+			<span class='gender'>성별</span>
+			<span class='phone'>연락처</span>
+			<span class='address'>주소</span>
+			<span class='email'>이메일</span>
+			<span class='zipcode'>우편번호</span>
+		</li>
+		
+		<c:forEach var='v' items="${list }" varStatus='status'>
+			<li class='item' onclick="view('${v.id}')">
+				<span class='no'>${status.index }</span>
+				<span class='id'>${v.id }</span>
+				<span class='name'>${v.name }</span>
+				<span class='gender'>${v.gender }</span>
+				<span class='phone'>${v.phone }</span>
+				<span class='address'>${v.address }</span>
+				<span class='email'>${v.email }</span>
+				<span class='zipcode'>${v.zipcode }</span>
+			</li>
+		</c:forEach>
+		
+		<li class='btn_page'><!-- page 이동 버튼 -->
+	
+			<c:if test="${pageVo.startPage>1 }"><!--startPage가 1보다클때만 처음, 이전 버튼을 넣어라  -->
+				<input type='button' value='처음' onclick='movePage(1)'/>		<!--  얘누르면 나오는 페이지가 1이 돼야함. -->
+				<input type='button' value='이전' onclick='movePage(${pageVo.startPage -1 })'/>
+			</c:if>
+			
+			<c:forEach var='i' begin='${pageVo.startPage }' end='${pageVo.endPage }'>
+				<input type='button' value='${i }' onclick='movePage(${i})'/>
+			</c:forEach>
+		
+			<c:if test="${pageVo.totPage gt pageVo.endPage }">
+				<input type='button' value='다음' onclick='movePage(${pageVo.endPage+1 })'/>
+				<input type='button' value='맨끝' onclick='movePage(${pageVo.totPage })'/>
+			</c:if>
+			
+		</li>
+		
+		
+	</ul>
+</div>
 </body>
 </html>
