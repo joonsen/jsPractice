@@ -40,7 +40,7 @@
 		
 		<c:forEach var='v' items="${list }" varStatus='status'>
 			<li class='item' onclick="view('${v.id}')">
-				<span class='no'>${status.index }</span>
+				<span class='no'>${status.count }</span>
 				<span class='id'>${v.id }</span>
 				<span class='name'>${v.name }</span>
 				<span class='gender'>${v.gender }</span>

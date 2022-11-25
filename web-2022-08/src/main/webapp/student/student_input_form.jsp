@@ -11,8 +11,6 @@
 </head>
 
 <body>
-<jsp:useBean id="pageVo" class="student.Page"/>
-<jsp:setProperty property="*" name="pageVo"/>
 <div id='std_input'>
 	<h2>학생 정보 입력</h2>
 	<form name='frm_input'	method='post'	action='서버페이지'
@@ -62,14 +60,15 @@
 			<input type='submit' value='저장' name='btnSave'/>
 			<input type='button' value='취소' name='btnCancel'/>
 		</div>
-		<input type='text' name='findStr' value='<%=pageVo.getFindStr() %>'/>
-		<input type='text' name='nowPage' value='<%=pageVo.getNowPage() %>'>
+		
+		<input type='text' name='findStr' value='${pageVo.findStr }'/>
+		<input type='text' name='nowPage' value='${pageVo.nowPage }'/>
 	
 	</form>
 
 </div>
 <Script>
-let frm = document.frm_input;
+/* let frm = document.frm_input;
 
 // 우편번호 검색기능 추가
 frm.findZip.onclick = function(){
@@ -80,7 +79,7 @@ frm.findZip.onclick = function(){
 		}
 	}).open();
 }
-
+ */
 //아이디: 영숫자만 입력 html에 pattern으로 추가 완료
 
 //연락처: 연락처 패턴에 맞게 입력 pattern으로 추가 완료

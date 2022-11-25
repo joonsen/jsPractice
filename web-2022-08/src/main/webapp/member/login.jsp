@@ -14,6 +14,7 @@
 		<span>암호</span>
 		<input type='password' name='pwd' value='1111'/><br/>
 		<input type='submit' value='로그인'/>
+		<a href= 'index.jsp?inc=student/find_pwd.jsp'>암호찾기</a>
 	</form>
 </div>
 </body>

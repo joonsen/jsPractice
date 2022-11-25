@@ -1,6 +1,4 @@
-/**
- * 
- */
+/*
 let frm = document.frm;
 let now = new Date();
 let data = {
@@ -12,9 +10,9 @@ let data = {
 }
 
 //날짜와 시간을 설정
-//frm.nal.valueAsDate = now;
-//frm.sigan.value = now.toLocalString().slice(15);
-//console.log(now.toLocaleString());
+frm.nal.valueAsDate = now;
+frm.sigan.value = now.toLocalString().slice(15);
+console.log(now.toLocaleString());
 
 //지역 설정
 let keys = Object.keys(data);//{}형태의 자료에서 key만 가져옴
@@ -31,7 +29,7 @@ frm.city.length=0; // select box 초기화
 for(k of keys){
 	let op  = new Option(k,k);
 	frm.city.options.add(op);
-}
+};
 
 
 /////////////////////////////메뉴설정
@@ -59,14 +57,14 @@ frm.btn.addEventListener('click', function(ev){
 	<span class='item'>인원수</span>${frm.ea.value} <br/>
 	<span class='item'>주문일</span>${frm.nal.value} <br/>
 	<span class='item'>주문시간</span>${frm.sigan.value} <br/>
-	`
+	`;
 	report.innerHTML = html;
 })
 
 
 
 
-
+*/
 
 
 
